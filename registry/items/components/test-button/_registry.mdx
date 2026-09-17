@@ -1,0 +1,16 @@
+---
+name: test-button
+type: registry:ui
+title: Test Button
+description: A simple test button to verify the registry install flow.
+registryDependencies:
+  - button
+---
+
+Install this item to confirm the registry is reachable from another machine.
+
+```tsx
+import { TestButton } from "@/components/ui/test-button";
+
+<TestButton label="Olá do registry" />
+```
