@@ -4,7 +4,6 @@ import { HeadContent, Link, Outlet, Scripts, createRootRoute } from "@tanstack/r
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
 import { NavigationProgress } from "@/components/docs/navigation-progress";
-import { SiteFooter } from "@/components/docs/site-footer";
 import { SiteHeader } from "@/components/docs/site-header";
 import { ThemeProvider } from "@/components/docs/theme-provider";
 import { Button } from "@/components/ui/button";
@@ -66,10 +65,9 @@ function RootRoute() {
         <NavigationProgress />
         <div className="flex min-h-svh flex-col">
           <SiteHeader />
-          <div className="flex-1">
+          <div className="flex min-h-0 flex-1 flex-col">
             <Outlet />
           </div>
-          <SiteFooter />
         </div>
       </TooltipProvider>
     </ThemeProvider>

@@ -20,7 +20,7 @@ export function SiteHeader() {
   const visibleSections = getSiteNavigationSections();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
+    <header className="sticky top-0 z-50 w-full bg-transparent">
       <div className="mx-auto flex h-14 max-w-screen-2xl items-center gap-4 px-4">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger render={<Button variant="ghost" size="icon" className="lg:hidden" />}>

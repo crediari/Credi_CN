@@ -1,6 +1,7 @@
 import { IconBlocks, IconBrandGithub } from "@tabler/icons-react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 
+import { HomeAurora } from "@/components/docs/home-aurora";
 import { Button } from "@/components/ui/button";
 
 import { getSeoHead } from "../lib/seo";
@@ -18,8 +19,9 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center px-4 py-24 sm:py-32">
-      <div className="mx-auto flex max-w-2xl flex-col items-center gap-6 text-center">
+    <div className="relative flex min-h-0 flex-1 flex-col items-center justify-center px-4 py-16">
+      <HomeAurora />
+      <div className="relative z-10 mx-auto flex max-w-2xl flex-col items-center gap-6 text-center">
         <img src="/logo.svg" alt={siteConfig.name} className="h-12 w-auto sm:h-16" />
         <h1 className="sr-only">{siteConfig.name}</h1>
         <p className="max-w-lg text-base text-muted-foreground">{siteConfig.description}</p>
