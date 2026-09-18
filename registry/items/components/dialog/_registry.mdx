@@ -1,0 +1,32 @@
+---
+name: dialog
+type: registry:ui
+title: Dialog
+description: Modal dialog with overlay, header, and footer.
+dependencies:
+  - "@base-ui/react"
+  - lucide-react
+---
+
+Open a focused modal for confirmations, forms, and short tasks.
+
+```tsx
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
+<Dialog>
+  <DialogTrigger>Open</DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Título</DialogTitle>
+      <DialogDescription>Descrição do diálogo.</DialogDescription>
+    </DialogHeader>
+  </DialogContent>
+</Dialog>
+```

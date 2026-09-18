@@ -1,0 +1,25 @@
+---
+name: generic-error-page
+type: registry:component
+title: Generic Error Page
+description: Full-page error state with optional actions.
+dependencies:
+  - lucide-react
+localRegistryDependencies:
+  - button
+files:
+  - path: generic-error-page.tsx
+    type: registry:component
+---
+
+Pass a title, description, and optional buttons with URLs.
+
+```tsx
+import { GenericErrorPage } from "@/components/generic-error-page";
+
+<GenericErrorPage
+  title="Página não encontrada"
+  description="O endereço pode ter mudado."
+  buttons={[{ label: "Voltar", url: "/", variant: "default" }]}
+/>
+```

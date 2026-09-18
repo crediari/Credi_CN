@@ -1,0 +1,27 @@
+---
+name: user-menu
+type: registry:component
+title: User Menu
+description: Account menu with avatar, theme toggle, and logout.
+dependencies:
+  - lucide-react
+localRegistryDependencies:
+  - button
+  - dropdown-menu
+  - tooltip
+  - user-avatar
+files:
+  - path: user-menu.tsx
+    type: registry:component
+---
+
+Pass `user`, `onLogout`, and optional theme handlers. No auth store required.
+
+```tsx
+import { UserMenu } from "@/components/user-menu";
+
+<UserMenu
+  user={{ name: "Ana Costa", email: "ana@crediari.com" }}
+  onLogout={() => undefined}
+/>
+```

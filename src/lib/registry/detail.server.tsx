@@ -136,7 +136,7 @@ async function renderPreview(path: string): Promise<AnyCompositeComponent | null
   return createCompositeComponent(() => (
     <div
       data-slot="component-preview"
-      className="grid min-h-72 place-items-center rounded-lg border bg-background p-6"
+      className="grid min-h-72 place-items-center rounded-lg border bg-code p-6"
     >
       <div data-slot="component-preview-stage" className="grid min-h-60 w-full place-items-center">
         <Preview />

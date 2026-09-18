@@ -1,0 +1,29 @@
+---
+name: select-popover
+type: registry:component
+title: Select Popover
+description: Searchable select built on Command and Popover.
+dependencies:
+  - lucide-react
+localRegistryDependencies:
+  - button
+  - command
+  - popover
+files:
+  - path: select-popover.tsx
+    type: registry:component
+---
+
+Pass generic items plus `labelKey` and `valueKey`. Use `onSearchChange` for remote search.
+
+```tsx
+import { SelectPopover } from "@/components/select-popover";
+
+<SelectPopover
+  items={cities}
+  value={city}
+  onSelect={setCity}
+  labelKey="name"
+  valueKey="id"
+/>
+```

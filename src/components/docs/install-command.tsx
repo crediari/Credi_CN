@@ -320,7 +320,7 @@ export function PackageManagerCommand({
   const SelectedLogo = selectedPackageManager.logo;
 
   return (
-    <div className={cn("min-w-0 overflow-hidden rounded-lg border bg-muted/40", className)}>
+    <div className={cn("min-w-0 overflow-hidden rounded-lg border bg-code", className)}>
       <div className="flex min-h-10 items-center justify-between gap-2 border-b px-2">
         <DropdownMenu>
           <DropdownMenuTrigger render={<Button variant="ghost" size="sm" />}>

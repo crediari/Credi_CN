@@ -1,0 +1,21 @@
+---
+name: user-avatar
+type: registry:component
+title: User Avatar
+description: User avatar with generated initials fallback.
+localRegistryDependencies:
+  - avatar
+files:
+  - path: user-avatar.tsx
+    type: registry:component
+  - path: generate-avatar-fallback.ts
+    type: registry:lib
+---
+
+Pass `username` and optional `userimage`. Initials come from the first and last name.
+
+```tsx
+import { UserAvatar } from "@/components/user-avatar";
+
+<UserAvatar username="Ana Costa" userimage={null} />
+```

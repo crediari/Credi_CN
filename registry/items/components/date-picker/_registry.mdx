@@ -1,0 +1,24 @@
+---
+name: date-picker
+type: registry:component
+title: Date Picker
+description: Popover date picker with Portuguese locale.
+dependencies:
+  - date-fns
+  - lucide-react
+localRegistryDependencies:
+  - button
+  - calendar
+  - popover
+files:
+  - path: date-picker.tsx
+    type: registry:component
+---
+
+Bind `value` and `onChange` for a single date. Future days are disabled.
+
+```tsx
+import { DatePicker } from "@/components/date-picker";
+
+<DatePicker value={date} onChange={setDate} />
+```

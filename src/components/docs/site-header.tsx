@@ -38,11 +38,10 @@ export function SiteHeader() {
           </SheetContent>
         </Sheet>
 
-        <Link to="/" className="flex items-center gap-2.5">
-          <RegistryLogo className="size-5 shrink-0" aria-hidden="true" />
-          <span className="font-mono text-sm font-semibold tracking-tighter">
-            {siteConfig.name}
-          </span>
+        <Link to="/" className="flex items-center gap-2">
+          <img src="/favicon.svg" alt="" className="size-8 shrink-0 sm:hidden" />
+          <img src="/logo.svg" alt={siteConfig.name} className="hidden h-8 w-auto sm:block" />
+          <span className="sr-only">{siteConfig.name}</span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
@@ -109,27 +108,4 @@ function HeaderSectionLink({
 
 function isSectionActive(section: SiteNavigationSection, pathname: string) {
   return pathname === section.basePath || pathname.startsWith(`${section.basePath}/`);
-}
-
-function RegistryLogo(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 36 36" fill="none" focusable="false" {...props}>
-      <path
-        fill="#3B88C3"
-        d="M32 0H4a4 4 0 0 0-4 4v28a4 4 0 0 0 4 4h28a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4"
-      />
-      <path
-        fill="#FFF"
-        d="M19 7h-2a1 1 0 0 0-1 1v20a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1"
-      />
-      <path
-        fill="#FFF"
-        d="m26.617 11.09l1.105 1.667a1 1 0 0 1-.281 1.386L10.769 25.191a1 1 0 0 1-1.386-.281l-1.105-1.667a1 1 0 0 1 .281-1.386L25.231 10.81a1 1 0 0 1 1.386.28"
-      />
-      <path
-        fill="#FFF"
-        d="m9.383 11.09l-1.105 1.667a1 1 0 0 0 .281 1.386L25.231 25.19a1 1 0 0 0 1.386-.281l1.105-1.667a1 1 0 0 0-.281-1.386L10.769 10.809a1 1 0 0 0-1.386.281"
-      />
-    </svg>
-  );
 }

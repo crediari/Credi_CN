@@ -1,3 +1,6 @@
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
 import contentCollections from "@content-collections/vite";
 import createMdx from "@mdx-js/rollup";
 import babel from "@rolldown/plugin-babel";
@@ -14,6 +17,8 @@ import { defineConfig } from "vite-plus";
 import { getPrerenderPages } from "./src/lib/prerender-pages.ts";
 import { shouldExcludeFromSitemap } from "./src/lib/seo.ts";
 import { siteConfig } from "./src/lib/site-config.ts";
+
+const viteConfigDir = dirname(fileURLToPath(import.meta.url));
 
 const config = defineConfig({
   run: {
@@ -141,6 +146,18 @@ const config = defineConfig({
   resolve: {
     tsconfigPaths: true,
     alias: [
+      {
+        find: "@/components/ui/avatar",
+        replacement: resolve(viteConfigDir, "registry/items/components/avatar/avatar.tsx"),
+      },
+      {
+        find: "@/components/ui/calendar",
+        replacement: resolve(viteConfigDir, "registry/items/components/calendar/calendar.tsx"),
+      },
+      {
+        find: "@/components/ui/popover",
+        replacement: resolve(viteConfigDir, "registry/items/components/popover/popover.tsx"),
+      },
       // shadcn/schema is compiled against Zod v3 and still calls deepPartial().
       // Keep bare zod imports on the v3 entry even when another dependency
       // hoists Zod v4 to the workspace root. see: https://github.com/shadcn-ui/ui/pull/9311

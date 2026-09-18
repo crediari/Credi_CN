@@ -1,0 +1,26 @@
+---
+name: applications-dropdown
+type: registry:component
+title: Applications Dropdown
+description: Grid of corporate apps and tools.
+dependencies:
+  - lucide-react
+localRegistryDependencies:
+  - button
+  - dropdown-menu
+  - user-avatar
+files:
+  - path: applications-dropdown.tsx
+    type: registry:component
+---
+
+Pass `systems` and `tools` as props. No SSO store required.
+
+```tsx
+import { ApplicationsDropdown } from "@/components/applications-dropdown";
+
+<ApplicationsDropdown
+  user={{ name: "Ana Costa" }}
+  systems={[{ id: "cards", name: "Cards", url: "https://cards.crediari.com.br" }]}
+/>
+```

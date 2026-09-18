@@ -14,7 +14,7 @@ export function CodeBlock({ code, highlightedHtml, header, className }: CodeBloc
   return (
     <div
       className={cn(
-        "group/code-block relative min-w-0 overflow-hidden rounded-lg border bg-muted/40",
+        "group/code-block relative min-w-0 overflow-hidden rounded-lg border bg-code",
         className,
       )}
     >
@@ -38,7 +38,7 @@ export function CodeBlock({ code, highlightedHtml, header, className }: CodeBloc
           resetDelay={1200}
           variant="ghost"
           size="icon-sm"
-          className="absolute top-2 right-2 z-10 bg-muted/90 group-hover/code-block:opacity-100 sm:opacity-0"
+          className="absolute top-2 right-2 z-10 bg-code group-hover/code-block:opacity-100 sm:opacity-0"
         />
       )}
       {highlightedHtml ? (
