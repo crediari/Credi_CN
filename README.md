@@ -1,6 +1,11 @@
 # \_cn
 
-<p align="center"><a href="https://underscore-cn.vercel.app"><img width="2776" height="1596" alt="underscorecn" src="https://github.com/user-attachments/assets/04bbb481-9ca8-49c3-bc83-b7d9a72e4b61" /></a></p>
+<p align="center">
+  <img src="docs/media/readme-dark.gif" alt="Crediari library homepage in dark theme with Ghost Fibers" />
+</p>
+<p align="center">
+  <img src="docs/media/readme-light.gif" alt="Crediari library homepage in light theme with Scanner" />
+</p>
 
 An intentionally minimal [TanStack Start](https://tanstack.com/start/latest) + [Vite+](https://viteplus.dev/) starter template for publishing a [shadcn-compatible registry](https://ui.shadcn.com/docs/registry) without writing the documentation site and registry plumbing from scratch.
 
