@@ -2,12 +2,10 @@
 name: test-button
 type: registry:ui
 title: Test Button
-description: A simple test button to verify the registry install flow.
-registryDependencies:
-  - button
+description: A standalone emerald test button with no shadcn button dependency.
 ---
 
-Install this item to confirm the registry is reachable from another machine.
+This item installs only `test-button.tsx`. It does not pull the default shadcn `button`.
 
 ```tsx
 import { TestButton } from "@/components/ui/test-button";

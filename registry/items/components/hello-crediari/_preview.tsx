@@ -1,12 +1,12 @@
 "use client";
 
-import { TestButton } from "./test-button";
+import { HelloCrediari } from "./hello-crediari";
 
 export function Preview() {
   return (
     <div className="flex flex-wrap items-center gap-2">
-      <TestButton />
-      <TestButton label="Funcionou" />
+      <HelloCrediari />
+      <HelloCrediari label="Instalou certo" />
     </div>
   );
 }
