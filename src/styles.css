@@ -211,3 +211,29 @@
     display: none;
   }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  ::view-transition-old(root) {
+    z-index: 1;
+  }
+
+  ::view-transition-new(root) {
+    animation: theme-circle-in 0.65s cubic-bezier(0.65, 0, 0.35, 1) both;
+    z-index: 2;
+  }
+}
+
+@keyframes theme-circle-in {
+  from {
+    clip-path: circle(0px at var(--theme-x, 92%) var(--theme-y, 1.75rem));
+  }
+  to {
+    clip-path: circle(var(--theme-r, 150vmax) at var(--theme-x, 92%) var(--theme-y, 1.75rem));
+  }
+}

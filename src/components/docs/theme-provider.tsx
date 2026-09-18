@@ -1,5 +1,6 @@
 import { ScriptOnce } from "@tanstack/react-router";
 import * as React from "react";
+import { flushSync } from "react-dom";
 
 const THEME_STORAGE_KEY = "theme";
 
@@ -45,6 +46,37 @@ function getStoredTheme(storageKey: string, defaultTheme: Theme): Theme {
   return isTheme(storedTheme) ? storedTheme : defaultTheme;
 }
 
+function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function startThemeViewTransition(update: () => void) {
+  const start = Reflect.get(document, "startViewTransition");
+  if (typeof start !== "function" || prefersReducedMotion()) {
+    update();
+    return;
+  }
+
+  primeThemeTransition();
+  start.call(document, update);
+}
+
+function primeThemeTransition(origin?: Element | null) {
+  const root = document.documentElement;
+  const marker = origin ?? document.querySelector("[data-theme-toggle]");
+  const rect = marker?.getBoundingClientRect();
+  const x = rect ? rect.left + rect.width / 2 : window.innerWidth - 48;
+  const y = rect ? rect.top + rect.height / 2 : 28;
+  const radius = Math.hypot(
+    Math.max(x, window.innerWidth - x),
+    Math.max(y, window.innerHeight - y),
+  );
+
+  root.style.setProperty("--theme-x", `${x}px`);
+  root.style.setProperty("--theme-y", `${y}px`);
+  root.style.setProperty("--theme-r", `${Math.ceil(radius)}px`);
+}
+
 function applyTheme(theme: Theme) {
   const resolvedTheme = getResolvedTheme(theme);
   const root = document.documentElement;
@@ -77,8 +109,14 @@ export function ThemeProvider({
 
   const setTheme = React.useCallback(
     (nextTheme: Theme) => {
-      window.localStorage.setItem(storageKey, nextTheme);
-      setThemeState(nextTheme);
+      const apply = () => {
+        window.localStorage.setItem(storageKey, nextTheme);
+        setThemeState(nextTheme);
+      };
+
+      startThemeViewTransition(() => {
+        flushSync(apply);
+      });
     },
     [storageKey],
   );

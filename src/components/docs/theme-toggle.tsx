@@ -40,7 +40,9 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="ghost" size="icon" className={className} />}>
+      <DropdownMenuTrigger
+        render={<Button variant="ghost" size="icon" className={className} data-theme-toggle="" />}
+      >
         <CurrentIcon />
         <span className="sr-only">Toggle theme</span>
       </DropdownMenuTrigger>
