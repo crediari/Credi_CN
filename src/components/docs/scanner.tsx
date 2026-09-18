@@ -145,8 +145,15 @@ void main() {
   inten *= clamp(1.0 - uVignette * smoothstep(0.55, 1.65, length(uv0)), 0.0, 1.0);
   inten = clamp(inten, 0.0, 1.0);
 
-  float a = clamp(inten * uOpacity, 0.0, 1.0);
-  fragColor = vec4(clamp(col, 0.0, 1.0) * a, a);
+  vec3 paperCool = vec3(0.945, 0.953, 0.945);
+  vec3 paperWarm = vec3(0.925, 0.937, 0.922);
+  vec3 paperSage = vec3(0.886, 0.918, 0.898);
+  float wash = 0.5 + 0.5 * sig;
+  vec3 paper = mix(paperCool, paperWarm, smoothstep(0.12, 0.78, wash));
+  paper = mix(paper, paperSage, sweep * 0.42);
+
+  vec3 outCol = mix(paper, col, inten * 0.88 * uOpacity);
+  fragColor = vec4(clamp(outCol, 0.0, 1.0), 1.0);
 }
 `;
 
@@ -252,14 +259,12 @@ const Scanner: FC<ScannerProps> = ({
     }
 
     const renderer = new Renderer({
-      alpha: true,
+      alpha: false,
       antialias: false,
       dpr: Math.min(Math.max(dpr, 0.5), 2),
-      premultipliedAlpha: true,
       webgl: 2,
     });
     const gl = renderer.gl;
-    gl.clearColor(0, 0, 0, 0);
     const canvas = gl.canvas;
     canvas.style.width = "100%";
     canvas.style.height = "100%";
@@ -300,7 +305,6 @@ const Scanner: FC<ScannerProps> = ({
       cullFace: false,
       depthTest: false,
       depthWrite: false,
-      transparent: true,
       uniforms,
     });
     const mesh = new Mesh(gl, { geometry: new Triangle(gl), program });

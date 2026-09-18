@@ -11,15 +11,16 @@ function HomeAurora() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-white dark:bg-transparent"
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[#eef3f0] dark:bg-transparent"
     >
       {isLight ? (
         <Scanner
-          key="sage"
+          key="sage-paper"
+          brightness={1.15}
           className="h-full w-full"
-          color1="#5f7d72"
-          color2="#b7cfc4"
-          color3="#3d5a50"
+          color1="#4f7468"
+          color2="#7fa396"
+          color3="#2f5248"
         />
       ) : (
         <GhostFibers
